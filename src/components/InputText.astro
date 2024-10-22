@@ -1,0 +1,10 @@
+---
+const { type, placeholder, dataTest } = Astro.props;
+---
+
+<input
+  type={type === "password" ? "password" : "text"}
+  class="w-full p-2 my-2 text-lg text-left text-gray-600 border-b-4 rounded"
+  placeholder={placeholder}
+  data-testid={dataTest}
+/>
