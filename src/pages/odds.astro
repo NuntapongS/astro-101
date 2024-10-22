@@ -1,5 +1,5 @@
 ---
-
+import ButtonNavigate from "../components/ButtonNavigate.astro";
 ---
 
 <main
@@ -27,12 +27,11 @@
       >
         Playwright Workshop
       </h2>
-
-      <button
-        class="w-full h-11 p-2 text-lg text-white bg-blue-600 rounded hover:bg-blue-700"
+      <ButtonNavigate
         id="logout-button"
-        data-testid="logout-button">Logout</button
-      >
+        text="Log out"
+        data-testid="logout-button"
+      />
     </div>
   </div>
 </main>
