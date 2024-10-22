@@ -1,0 +1,32 @@
+---
+
+---
+
+<main
+  class="bg-gradient-to-r from-blue-600 to-blue-300 h-dvh bg-fixed flex justify-center items-center"
+>
+  <div
+    class="bg-white w-[70rem] h-[32rem] p-10 rounded-lg shadow-lg flex justify-center items-center gap-5"
+  >
+    <img
+      src="../../public/images/ODT_Logo.png"
+      alt="ODT Logo"
+      class="w-[30rem] h-[15rem]"
+    />
+
+    <button
+      class="w-full h-11 p-2 my-2 text-lg text-white bg-blue-600 rounded hover:bg-blue-700"
+      id="back-button"
+      data-testid="login-button">Back</button
+    >
+  </div>
+</main>
+
+<script>
+  const backButton = document.getElementById("back-button");
+  if (backButton) {
+    backButton.addEventListener("click", function () {
+      window.history.back();
+    });
+  }
+</script>
