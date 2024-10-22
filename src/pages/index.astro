@@ -20,10 +20,12 @@ import InputText from "../components/InputText.astro";
       >
         Welcome To ODDS| Conference
       </h2>
-      <InputText type="text" placeholder="Enter Username" />
-      <InputText type="password" placeholder="Enter Password" />
+      <div class="mb-10">
+        <InputText type="text" placeholder="Enter Username" />
+        <InputText type="password" placeholder="Enter Password" />
+      </div>
       <button
-        class="w-full h-11 p-2 mt-[40px] text-lg text-white bg-blue-600 rounded hover:bg-blue-700"
+        class="w-full h-11 p-2 text-lg text-white bg-blue-600 rounded hover:bg-blue-700"
         id="login-button"
         data-testid="login-button">Login</button
       >
