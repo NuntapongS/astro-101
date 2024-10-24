@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs Example</title>
+  <style>
+    .active {
+      background-color: gray;
+      color: white;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // List of tab names
+      const tabs = ['Home', 'About', 'Contact'];
+      let activeTab = 'Home'; // Default active tab
+
+      // Function to change the active tab
+      function onTabChange(tab: string) {
+        activeTab = tab;
+        render();
+      }
+
+      // Function to render content and update active tab UI
+      function render() {
+        // Update content based on active tab
+        const contentContainer = document.getElementById("content");
+        if (activeTab === 'Home') {
+          contentContainer!.innerHTML = `
+            <section id="home">
+              <h1 class="text-3xl font-bold">Welcome to the Home Page</h1>
+              <p>This is the content for the Home tab.</p>
+            </section>`;
+        } else if (activeTab === 'About') {
+          contentContainer!.innerHTML = `
+            <section id="about" class="mt-8">
+              <h1 class="text-3xl font-bold">About Us</h1>
+              <p>This is the content for the About tab.</p>
+            </section>`;
+        } else if (activeTab === 'Contact') {
+          contentContainer!.innerHTML = `
+            <section id="contact" class="mt-8">
+              <h1 class="text-3xl font-bold">Contact Us</h1>
+              <p>This is the content for the Contact tab.</p>
+            </section>`;
+        }
+
+        // Update tab button styles
+        tabs.forEach(tab => {
+          const button = document.getElementById(tab);
+          if (tab === activeTab) {
+            button!.classList.add('active');
+          } else {
+            button!.classList.remove('active');
+          }
+        });
+      }
+
+      // Add event listeners to each tab button
+      tabs.forEach(tab => {
+        document.getElementById(tab)!.addEventListener('click', () => onTabChange(tab));
+      });
+
+      // Initial render on page load
+      render();
+    });
+  </script>
+</head>
+<body>
+  <nav class="bg-gray-800 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-xl font-bold">My Website</div>
+      <div class="flex space-x-4">
+        <button
+          class="w-full h-11 p-2 my-2 text-lg text-white bg-blue-600 rounded hover:bg-blue-700"
+          id="back-button"
+          data-testid="back-button">Back
+        </button>
+        <button
+          id="Home"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home
+        </button>
+        <button
+          id="About"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+        </button>
+        <button
+          id="Contact"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto mt-8" id="content">
+    <!-- Dynamic content will be inserted here -->
+  </main>
+
+  <script>
+    // Back button functionality
+    const backButton = document.getElementById("back-button");
+    if (backButton) {
+      backButton.addEventListener("click", function () {
+        window.history.back();
+      });
+    }
+  </script>
+</body>
+</html>
