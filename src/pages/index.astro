@@ -23,8 +23,8 @@ import InputText from "../components/InputText.astro";
         Welcome To ODDS| Conference
       </h2>
       <div class="mb-10">
-        <InputText type="text" placeholder="Enter Username" />
-        <InputText type="password" placeholder="Enter Password" />
+        <InputText id="username" type="text" placeholder="Enter Username" />
+        <InputText id="password" type="password" placeholder="Enter Password" />
       </div>
       <ButtonNavigate
         id="login-button"
@@ -38,8 +38,20 @@ import InputText from "../components/InputText.astro";
 
 <script>
   const loginButton = document.getElementById("login-button");
+  const usernameInput = document.getElementById("username") as HTMLInputElement;
+  const passwordInput = document.getElementById("password") as HTMLInputElement;
   if (loginButton) {
-    loginButton.addEventListener("click", function () {
+    loginButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      const username = usernameInput?.value.trim();
+      const password = passwordInput?.value.trim();
+      console.log({ username });
+
+      console.log({ password });
+      if (!username || !password) {
+        alert("Please enter both username and password.");
+        return;
+      }
       window.location.href = "/welcome";
     });
   }
