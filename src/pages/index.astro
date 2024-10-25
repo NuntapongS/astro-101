@@ -23,12 +23,22 @@ import InputText from "../components/InputText.astro";
         Welcome To ODDS| Conference
       </h2>
       <div class="mb-4">
-        <InputText id="username" type="text" placeholder="Enter Username" />
+        <InputText
+          id="username"
+          type="text"
+          placeholder="Enter Username"
+          dataTestId="username-input"
+        />
         <p id="username-error" class="text-red-500 text-sm hidden text-right">
           Username is required
         </p>
 
-        <InputText id="password" type="password" placeholder="Enter Password" />
+        <InputText
+          id="password"
+          type="password"
+          placeholder="Enter Password"
+          dataTestId="password-input"
+        />
         <p id="password-error" class="text-red-500 text-sm hidden text-right">
           Password is required
         </p>
