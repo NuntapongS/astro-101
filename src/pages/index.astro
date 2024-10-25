@@ -24,7 +24,14 @@ import InputText from "../components/InputText.astro";
       </h2>
       <div class="mb-10">
         <InputText id="username" type="text" placeholder="Enter Username" />
+        <p id="username-error" class="text-red-500 text-sm hidden">
+          Username is required
+        </p>
+
         <InputText id="password" type="password" placeholder="Enter Password" />
+        <p id="password-error" class="text-red-500 text-sm hidden">
+          Password is required
+        </p>
       </div>
       <ButtonNavigate
         id="login-button"
@@ -40,17 +47,35 @@ import InputText from "../components/InputText.astro";
   const loginButton = document.getElementById("login-button");
   const usernameInput = document.getElementById("username") as HTMLInputElement;
   const passwordInput = document.getElementById("password") as HTMLInputElement;
+  const usernameError = document.getElementById("username-error");
+  const passwordError = document.getElementById("password-error");
+
   if (loginButton) {
     loginButton.addEventListener("click", function (event) {
       event.preventDefault();
+
       const username = usernameInput?.value.trim();
       const password = passwordInput?.value.trim();
 
-      if (!username || !password) {
-        alert("Please enter both username and password.");
-        return;
+      let isValid = true;
+
+      // Reset error messages
+      usernameError?.classList.add("hidden");
+      passwordError?.classList.add("hidden");
+
+      if (!username) {
+        usernameError?.classList.remove("hidden");
+        isValid = false;
       }
-      window.location.href = "/welcome";
+      if (!password) {
+        passwordError?.classList.remove("hidden");
+        isValid = false;
+      }
+
+      // Proceed if valid
+      if (isValid) {
+        window.location.href = "/welcome";
+      }
     });
   }
 </script>
