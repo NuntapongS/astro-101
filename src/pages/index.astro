@@ -17,19 +17,19 @@ import InputText from "../components/InputText.astro";
     />
     <div>
       <h2
-        class="text-3xl font-bold text-center text-blue-600 mb-6"
+        class="text-3xl font-bold text-center text-blue-600 mb-4"
         data-testid="login-title"
       >
         Welcome To ODDS| Conference
       </h2>
-      <div class="mb-10">
+      <div class="mb-4">
         <InputText id="username" type="text" placeholder="Enter Username" />
-        <p id="username-error" class="text-red-500 text-sm hidden">
+        <p id="username-error" class="text-red-500 text-sm hidden text-right">
           Username is required
         </p>
 
         <InputText id="password" type="password" placeholder="Enter Password" />
-        <p id="password-error" class="text-red-500 text-sm hidden">
+        <p id="password-error" class="text-red-500 text-sm hidden text-right">
           Password is required
         </p>
       </div>
